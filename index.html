@@ -105,9 +105,10 @@
   }
 
   .pill {
-   display: flex;
-   font-family: 'Unbounded', sans-serif;
-   font-size: 14px;
+    padding: 0.35rem 1rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    font-size: 12px;
     font-weight: 500;
     background: rgba(255,255,255,0.05);
   }
@@ -328,15 +329,24 @@
   }
 
   .acc-portfolio {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
   }
+  .acc-portfolio::-webkit-scrollbar { height: 4px; }
+  .acc-portfolio::-webkit-scrollbar-track { background: transparent; }
+  .acc-portfolio::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
 
   .acc-portfolio-item {
-    background: rgba(255,255,255,0.04);
+    background: rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.08);
-    aspect-ratio: 9/16;
+    width: 280px;
+    min-width: 280px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -344,6 +354,8 @@
     cursor: pointer;
     transition: background 0.3s;
     position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   .acc-portfolio-item:hover { background: rgba(255,255,255,0.09); }
@@ -469,14 +481,14 @@
   <div class="hero-right">
     <p class="tag-line fade-up">Контент-мейкер</p>
     <h1 class="hero-name fade-up">Елена<br>Брендон</h1>
-   <div class="pill">
-      <span class="pill">SMM   |</span>
-      <span class="pill">   Монтаж видео   |</span>
-      <span class="pill">   Вирусные форматы      </span>
-    </div>    <p class="hero-subtitle fade-up">
+    <p class="hero-subtitle fade-up">
       Создаю контент, который смотрят миллионы. 107K подписчиков личного блога. Полный цикл — от идеи до монтажа.
     </p>
-   
+    <div class="pills fade-up">
+      <span class="pill">SMM</span>
+      <span class="pill">Монтаж видео</span>
+      <span class="pill">Вирусные форматы</span>
+    </div>
 
     <!-- STAR TG BUTTON -->
     <div class="star-btn-wrap fade-up">
@@ -493,7 +505,7 @@
 
 <!-- SERVICES -->
 <section class="services-section">
-  <p class="section-label">Услуги для бизнеса (нажми на кнопку) </p>
+  <p class="section-label">Услуги для бизнеса</p>
 
   <div class="stars-row">
     <!-- SMM -->
@@ -502,7 +514,7 @@
         <polygon points="100,10 122,70 185,70 135,108 155,170 100,133 45,170 65,108 15,70 78,70" fill="#e0233c"/>
       </svg>
       <div class="star-service-label">
-      
+        <span class="num">01</span>
         <span class="icon">📱</span>
         <span class="title">SMM</span>
       </div>
@@ -514,7 +526,7 @@
         <polygon points="100,10 122,70 185,70 135,108 155,170 100,133 45,170 65,108 15,70 78,70" fill="#c41e34"/>
       </svg>
       <div class="star-service-label">
-    
+        <span class="num">02</span>
         <span class="icon">🎬</span>
         <span class="title">Монтаж видео</span>
       </div>
@@ -526,7 +538,7 @@
         <polygon points="100,10 122,70 185,70 135,108 155,170 100,133 45,170 65,108 15,70 78,70" fill="#a8192c"/>
       </svg>
       <div class="star-service-label">
-
+        <span class="num">03</span>
         <span class="icon">🚀</span>
         <span class="title">Разработка форматов</span>
       </div>
@@ -581,11 +593,12 @@
         </ul>
       </div>
       <div class="acc-portfolio">
-        <div class="acc-portfolio-item"><video src="v1.mp4" controls style="width:100%;height:100%;object-fit:cover"></video></div>
-      <div class="acc-portfolio-item"><video src="v2.mp4" controls style="width:100%;height:100%;object-fit:cover"></video></div>
-       <div class="acc-portfolio-item"><video src="v3.mp4" controls style="width:100%;height:100%;object-fit:cover"></video></div> 
-       <div class="acc-portfolio-item"><video src="v4.mp4" controls style="width:100%;height:100%;object-fit:cover"></video></div>
+        <div class="acc-portfolio-item"><iframe src="https://drive.google.com/file/d/1lNRkM8DytA7EXcPdG1YvweZyxHYyfIje/preview" style="width:100%;height:100%;border:none" allow="autoplay"></iframe></div>
+        <div class="acc-portfolio-item"><iframe src="https://drive.google.com/file/d/1TfHR9qAkU-RcIy9lcg_NQ5yOWAzQdlde/preview" style="width:100%;height:100%;border:none" allow="autoplay"></iframe></div>
+        <div class="acc-portfolio-item"><iframe src="https://drive.google.com/file/d/1_tXFoXdGt2l3OQn1-Jf-ZSgqoCdDojZf/preview" style="width:100%;height:100%;border:none" allow="autoplay"></iframe></div>
+        <div class="acc-portfolio-item"><iframe src="https://drive.google.com/file/d/1UvaOYtI41ErM93f4B3-6tFRqnKnhkhQ3/preview" style="width:100%;height:100%;border:none" allow="autoplay"></iframe></div>
       </div>
+    </div>
 
     <!-- ФОРМАТЫ content -->
     <div id="content-acc3" style="display:none">
@@ -617,7 +630,7 @@
 
 <!-- FOOTER -->
 <footer>
-  
+  <div class="footer-name">Елена Брендон</div>
   <a href="https://t.me/lena_brendon" target="_blank" class="footer-tg">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.018 9.51c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.177 14.6l-2.95-.924c-.643-.2-.656-.643.136-.953l11.532-4.448c.537-.194 1.006.131.667.973z"/></svg>
     @lena_brendon
