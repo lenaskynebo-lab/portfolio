@@ -660,7 +660,7 @@
   </a>
 </footer>
 
-<script>
+ <script>
   let current = null;
 
   function toggleAcc(id) {
@@ -669,7 +669,6 @@
     const allContent = document.querySelectorAll('[id^="content-"]');
 
     if (current === id) {
-      // close
       panel.classList.remove('open');
       panel.dataset.for = '';
       document.getElementById(id).classList.remove('active');
@@ -677,21 +676,18 @@
       return;
     }
 
-    // hide all content
     allContent.forEach(c => c.style.display = 'none');
     allStars.forEach(s => s.classList.remove('active'));
 
-    // show selected
     document.getElementById('content-' + id).style.display = 'block';
     document.getElementById(id).classList.add('active');
     panel.dataset.for = id;
     panel.classList.add('open');
     current = id;
 
+    // Ждём пока аккордеон раскроется, потом скроллим к нему
     setTimeout(() => {
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    }, 350);
   }
 </script>
-</body>
-</html>
