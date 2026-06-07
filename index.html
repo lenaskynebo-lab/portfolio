@@ -11,7 +11,7 @@
   :root {
     --blue: #1346d4;
     --white: #ffffff;
-    --pink: #e0236b; /* малиновый оттенок */
+    --pink: #e0236b;
   }
 
   html { scroll-behavior: smooth; }
@@ -66,32 +66,7 @@
     padding-left: 1rem;
   }
 
-  .tag-line {
-    font-size: clamp(11px, 1.3vw, 14px);
-    font-weight: 500;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    opacity: 0.65;
-    margin-bottom: 1rem;
-  }
-
-  .hero-name {
-    font-family: 'Unbounded', sans-serif;
-    font-size: clamp(42px, 6.5vw, 82px);
-    font-weight: 900;
-    line-height: 1.05;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.4rem;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(15px, 1.6vw, 18px);
-    opacity: 0.82;
-    line-height: 1.75;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
+  .tag-line, .hero-name, .hero-subtitle { animation: fadeUp 1s ease forwards; }
 
   /* SERVICES NAV */
   .services-nav {
@@ -127,7 +102,7 @@
     color: var(--blue);
   }
 
-  /* PORTFOLIO */
+  /* SECTIONS */
   .service-section {
     padding: 6rem 6vw 4rem;
     position: relative;
@@ -183,7 +158,26 @@
     opacity: 0.9;
   }
 
-  /* FLOATING STAR BUTTON */
+  /* LIGHTBOX */
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lightbox img {
+    max-width: 95%;
+    max-height: 95vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  }
+
+  /* FLOATING STAR */
   .floating-tg {
     position: fixed;
     bottom: 35px;
@@ -203,12 +197,9 @@
     color: var(--pink);
     text-shadow: 0 0 20px rgba(224, 35, 107, 0.6);
     animation: floatStar 4s ease-in-out infinite;
-    transition: transform 0.3s;
   }
 
-  .star:hover {
-    transform: scale(1.15);
-  }
+  .star:hover { transform: scale(1.15); }
 
   .tg-text {
     font-size: 12.5px;
@@ -228,13 +219,6 @@
     padding: 4rem 6vw 3rem;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-name {
-    font-family: 'Unbounded', sans-serif;
-    font-size: clamp(24px, 3.8vw, 40px);
-    font-weight: 900;
-    text-transform: uppercase;
   }
 
   @media (max-width: 768px) {
@@ -276,20 +260,11 @@
 <!-- SMM -->
 <section id="smm" class="service-section">
   <h2 class="section-title">SMM</h2>
-  <p class="section-desc">Помогаю брендам и личным блогам расти через сильный визуальный контент и системный подход.</p>
+  <p class="section-desc">Помогаю брендам и личным блогам расти через сильный визуальный контент.</p>
   <div class="portfolio-grid">
-    <div class="portfolio-item" onclick="window.open('IMG_8289.jpeg', '_blank')">
-      <img src="IMG_8289.jpeg" alt="">
-      <div class="portfolio-caption">Кейс — Anime Café</div>
-    </div>
-    <div class="portfolio-item" onclick="window.open('IMG_8290.jpeg', '_blank')">
-      <img src="IMG_8290.jpeg" alt="">
-      <div class="portfolio-caption">Кейс — Fashion Brand</div>
-    </div>
-    <div class="portfolio-item" onclick="window.open('IMG_8291.jpeg', '_blank')">
-      <img src="IMG_8291.jpeg" alt="">
-      <div class="portfolio-caption">Личный бренд</div>
-    </div>
+    <div class="portfolio-item" onclick="openLightbox('IMG_8289.jpeg')"><img src="IMG_8289.jpeg" alt=""><div class="portfolio-caption">Кейс — Anime Café</div></div>
+    <div class="portfolio-item" onclick="openLightbox('IMG_8290.jpeg')"><img src="IMG_8290.jpeg" alt=""><div class="portfolio-caption">Кейс — Fashion Brand</div></div>
+    <div class="portfolio-item" onclick="openLightbox('IMG_8291.jpeg')"><img src="IMG_8291.jpeg" alt=""><div class="portfolio-caption">Личный бренд</div></div>
   </div>
 </section>
 
@@ -310,6 +285,14 @@
       <iframe src="https://drive.google.com/file/d/1_tXFoXdGt2l3OQn1-Jf-ZSgqoCdDojZf/preview" allowfullscreen></iframe>
       <div class="portfolio-caption">Пример монтажа 3</div>
     </div>
+    <div class="portfolio-item">
+      <iframe src="https://drive.google.com/file/d/1xclxEtRmmOuJPC_XBnUj5M7iGpfMkKlm/preview" allowfullscreen></iframe>
+      <div class="portfolio-caption">Пример монтажа 4</div>
+    </div>
+    <div class="portfolio-item">
+      <iframe src="https://drive.google.com/file/d/ВАШ_ПЯТЫЙ_ВИДЕО/preview" allowfullscreen></iframe>
+      <div class="portfolio-caption">Пример монтажа 5</div>
+    </div>
   </div>
 </section>
 
@@ -318,9 +301,11 @@
   <h2 class="section-title">Разработка форматов</h2>
   <p class="section-desc">Создаю узнаваемые серии и вирусные механики.</p>
   <div class="portfolio-grid">
-    <div class="portfolio-item" onclick="window.open('IMG_8294.jpeg', '_blank')">
+    <div class="portfolio-item" onclick="openLightbox('IMG_8294.jpeg')">
       <img src="IMG_8294.jpeg" alt="">
-     <div class="portfolio-item">
+      <div class="portfolio-caption">Примеры форматов</div>
+    </div>
+    <div class="portfolio-item">
       <iframe src="https://drive.google.com/file/d/1xclxEtRmmOuJPC_XBnUj5M7iGpfMkKlm/preview" allowfullscreen></iframe>
       <div class="portfolio-caption">Вирусный формат</div>
     </div>
@@ -333,9 +318,14 @@
   <div class="tg-text">Написать в ТГ</div>
 </a>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="this.style.display='none'">
+  <img id="lightbox-image" src="" alt="">
+</div>
+
 <!-- FOOTER -->
 <footer>
- 
+  <div class="footer-name">Елена Брендон</div>
   <a href="https://t.me/lena_brend0n" target="_blank" style="color:white; text-decoration:none; margin-top:10px; display:inline-block;">
     @lena_brend0n
   </a>
@@ -347,6 +337,18 @@
     event.currentTarget.classList.add('active');
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   }
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-image').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+
+  // Закрытие по Esc
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  });
 </script>
 </body>
 </html>
