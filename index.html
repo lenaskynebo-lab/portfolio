@@ -35,39 +35,64 @@
 
   /* HERO */
   .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0 6vw;
-    gap: 5vw;
-    position: relative;
-    z-index: 2;
-  }
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 6vw;
+  gap: 4vw;
+  position: relative;
+  z-index: 2;
+}
 
-  .avatar-wrap {
-    width: clamp(340px, 48vw, 560px);
-  }
+.hero-left {
+  display: flex;
+  justify-content: center;
+}
 
-  .avatar-wrap img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 30px 80px rgba(0,0,0,0.5));
-    animation: float 7s ease-in-out infinite;
-  }
+.avatar-wrap {
+  width: clamp(280px, 42vw, 480px);
+}
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-25px) rotate(2deg); }
-  }
+.avatar-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 70px rgba(0,0,0,0.6));
+  animation: float 6.5s ease-in-out infinite;
+}
 
-  .hero-right {
-    padding-left: 1rem;
-  }
+.hero-right {
+  padding-left: 2rem;
+}
 
-  .tag-line, .hero-name, .hero-subtitle { animation: fadeUp 1s ease forwards; }
+.tag-line {
+  font-size: clamp(12px, 1.4vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
 
+.hero-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(48px, 7.2vw, 92px);     /* ← главное изменение */
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.2rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 1.65vw, 19px);
+  opacity: 0.85;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+ 
   /* SERVICES NAV */
   .services-nav {
     position: sticky;
