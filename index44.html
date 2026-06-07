@@ -34,68 +34,63 @@
   }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0 6vw;
-    position: relative;
-    z-index: 2;
-    gap: 4vw;
-  }
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 6vw;
+  gap: 4vw;
+  position: relative;
+  z-index: 2;
+}
 
-  .hero-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.hero-left {
+  display: flex;
+  justify-content: center;
+}
 
-  .avatar-wrap {
-    position: relative;
-    width: clamp(260px, 38vw, 500px);
-  }
+.avatar-wrap {
+  width: clamp(280px, 42vw, 480px);
+}
 
-  .avatar-wrap img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
-    animation: float 6s ease-in-out infinite;
-  }
+.avatar-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 70px rgba(0,0,0,0.6));
+  animation: float 6.5s ease-in-out infinite;
+}
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(-1deg); }
-    50% { transform: translateY(-16px) rotate(1deg); }
-  }
+.hero-right {
+  padding-left: 2rem;
+}
 
-  .tag-line {
-    font-size: clamp(10px, 1.2vw, 13px);
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0.5;
-    margin-bottom: 1.2rem;
-  }
+.tag-line {
+  font-size: clamp(12px, 1.4vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.8rem;
+}
 
-  .hero-name {
-    font-family: 'Unbounded', sans-serif;
-    font-size: clamp(34px, 5vw, 76px);
-    font-weight: 900;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-  }
+.hero-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(48px, 7.2vw, 92px);     /* ← главное изменение */
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.2rem;
+}
 
-  .hero-subtitle {
-    font-size: clamp(13px, 1.3vw, 15px);
-    font-weight: 300;
-    opacity: 0.7;
-    line-height: 1.8;
-    max-width: 400px;
-    margin-bottom: 2rem;
-  }
+.hero-subtitle {
+  font-size: clamp(15px, 1.65vw, 19px);
+  opacity: 0.85;
+  line-height: 1.65;
+  max-width: 520px;
+}
 
   .pills {
     display: flex;
