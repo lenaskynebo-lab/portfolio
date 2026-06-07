@@ -241,39 +241,67 @@
   }
 
   /* ==================== MOBILE ==================== */
-  @media (max-width: 768px) {
-    .hero {
-      padding: 9rem 5vw 6rem;
-      gap: 3rem;
-    }
-
-    .avatar-wrap { width: 240px; margin: 0 auto; }
-
-    .hero-name { font-size: clamp(38px, 9vw, 58px); }
-
-    .portfolio-grid { grid-template-columns: 1fr; gap: 20px; }
-
-    .portfolio-item img,
-    .portfolio-item iframe {
-      max-height: 320px;
-    }
-
-    .services-nav {
-      padding: 14px 5vw;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .services-nav button {
-      padding: 11px 18px;
-      font-size: 12.5px;
-    }
-
-    .service-section { padding: 4rem 5vw 3rem; }
-
-    .floating-tg { bottom: 20px; right: 20px; }
-    .star { font-size: 44px; }
+ /* ==================== MOBILE ==================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 8rem 5vw 5rem;
+    min-height: 85vh;
+    gap: 2.5rem;
   }
+
+  .avatar-wrap {
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .hero-name {
+    font-size: clamp(36px, 8.5vw, 54px);
+  }
+
+  /* Главное — видео не растягиваются */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-item img,
+  .portfolio-item iframe {
+    max-height: 240px;     /* уменьшил высоту */
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .portfolio-caption {
+    padding: 12px 14px;
+    font-size: 13.8px;
+  }
+
+  .service-section {
+    padding: 4rem 5vw 3rem;
+  }
+
+  /* Навигация */
+  .services-nav {
+    padding: 14px 5vw;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .services-nav button {
+    padding: 11px 18px;
+    font-size: 12.3px;
+  }
+
+  /* Плавающая кнопка */
+  .floating-tg {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .star {
+    font-size: 46px;
+  }
+}
 </style>
 </head>
 <body>
